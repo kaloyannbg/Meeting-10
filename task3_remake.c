@@ -14,11 +14,13 @@ int isLetter(char c);
 int main()
 {
 
-    char strToDouble[] = "01234as-dasd55a5.52bb5"; // print -555.525000
+    char strToDouble1[] = "01234as-dasd55a5.52bb5"; // print -555.525000
+    char strToDouble2[] = "55aazxcx5.5sk12asdasdasd"; // print -555.525000
+    char strToDouble3[] = "52x8xx.55sa2kaosd"; // print 52.550000 , because i (2) = 52(2)
 
-    //atof(strToDouble);
-
-    printf("%f", atof(strToDouble));
+    printf(" %s  in  double is:  %f\n",strToDouble1 ,atof(strToDouble1));
+    printf(" %s  in  double is:  %f\n",strToDouble2 ,atof(strToDouble2));
+    printf(" %s  in  double is:  %f\n",strToDouble3 ,atof(strToDouble3));
 
     return 0;
 }
