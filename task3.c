@@ -14,7 +14,7 @@ int isLetter(char c);
 int main()
 {
 
-    char strToDouble[] = "55jjjjjj.555sad555";
+    char strToDouble[] = "-55jjjjjj.555sad555";
 
     // atof(strToDouble);
 
@@ -56,8 +56,11 @@ double atof(char *str)
 
     while (str[countStr] != '\0')
     {
-
-        if (!isLetter(str[countStr]) && str[countStr] != countStr + '0')
+        if (str[countStr] == '-')
+        {
+            isNegative = 1;
+        }
+        else if (!isLetter(str[countStr]) && str[countStr] != countStr + '0')
         {
             convertedStr[countConvertedStr] = str[countStr];
             countConvertedStr++;
@@ -88,5 +91,12 @@ double atof(char *str)
         }
     }
 
-    return total = total / pointPlace;
+    total = total / pointPlace;
+
+    if(isNegative) {
+        total = total - (total * 2);
+        return total;
+    }
+
+    return total;
 }
