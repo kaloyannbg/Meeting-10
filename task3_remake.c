@@ -14,7 +14,7 @@ int isLetter(char c);
 int main()
 {
 
-    char strToDouble[] = "asdasd-25.2asdsa52-asdds";
+    char strToDouble[] = "01234asdasd555.525";
 
     //atof(strToDouble);
 
@@ -77,7 +77,7 @@ double atof(char *str)
         if (newArray[i] == '.')
         {
             int temp = i;
-            while (temp >= 0)
+            while (temp > 0)
             {
                 pointNum++;
                 temp--;
