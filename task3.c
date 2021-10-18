@@ -6,10 +6,87 @@
 */
 
 #include <stdio.h>
+#include <string.h>
 
-int main() {
+double atof(char *str);
+int isLetter(char c);
 
+int main()
+{
 
+    char strToDouble[] = "55jjjjjj.555sad555";
+
+    // atof(strToDouble);
+
+    printf("%f", atof(strToDouble));
 
     return 0;
+}
+
+int isLetter(char c)
+{
+
+    int isLet = (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ? 1 : 0;
+
+    return isLet;
+}
+
+double atof(char *str)
+{
+
+    char convertedStr[100];
+
+    int length = strlen(str) - 1;
+
+    int digit = 0;
+
+    double total = 0;
+
+    int place = 1;
+
+    int pointNum = 0;
+
+    int pointPlace = 1;
+
+    int isNegative = 0;
+
+    int countStr = 0;
+
+    int countConvertedStr = 0;
+
+    while (str[countStr] != '\0')
+    {
+
+        if (!isLetter(str[countStr]) && str[countStr] != countStr + '0')
+        {
+            convertedStr[countConvertedStr] = str[countStr];
+            countConvertedStr++;
+        }
+
+        countStr++;
+    }
+
+    convertedStr[countConvertedStr] = '\0';
+
+    for (int i = countConvertedStr; convertedStr[i] != '.'; i--)
+    {
+        ++pointNum;
+
+        pointPlace = pointPlace * 10;
+    }
+
+    // printf("Length: %d\n PointPos: %d\n", length, pointPlace);
+
+    for (int i = countConvertedStr; i >= 0; i--)
+    {
+
+        if (convertedStr[i] != '.')
+        {
+            digit = convertedStr[i] - 48;
+            total = total + (digit * place);
+            place = place * 10;
+        }
+    }
+
+    return total = total / pointPlace;
 }
