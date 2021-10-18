@@ -14,7 +14,7 @@ int isLetter(char c);
 int main()
 {
 
-    char strToDouble[] = "01234asdasd555.525";
+    char strToDouble[] = "01234as-dasd55a5.52bb5"; // print -555.525000
 
     //atof(strToDouble);
 
